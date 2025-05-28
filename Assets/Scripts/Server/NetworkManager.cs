@@ -121,15 +121,13 @@ public void sendPublicMessage(string message)
     {
         disconnect();
     }
+
     public void sendReadyState(bool isReady)
     {
         var readyData = new ReadyStateData { isReady = isReady };
         string json = JsonUtility.ToJson(readyData);
         webSocket.To.Event("player-ready", json, HTTP.Text);
     }
-    
-
- 
 }
 
 [Serializable]
